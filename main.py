@@ -1,5 +1,6 @@
 from Crud.crud import cadastrar_livros
-Acervo_livros = ""
+acervo_livros = []
+isbns_cadastrados = set()
 quantidade_livros = 0
 arquivo_encontrado = False 
 print ("Sebo de livros")
@@ -9,7 +10,7 @@ if arquivo_encontrado == False:
     print("Arquivos não encontrados")
     print("Iniciando com acervo vazio")
 
-elif Acervo_livros == "":
+elif acervo_livros == "":
     print("O acervo está vazio")
 
 else:
