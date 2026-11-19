@@ -1,3 +1,4 @@
+from Crud.crud import cadastrar_livros
 Acervo_livros = ""
 quantidade_livros = 0
 arquivo_encontrado = False 
@@ -13,7 +14,7 @@ elif Acervo_livros == "":
 
 else:
     print("Acervo que está disponivel:")
-    print(Acervo_livros)
+    print(acervo_livros)
 
 opçao = ""
 Sistema_ativo = True
@@ -31,7 +32,7 @@ while Sistema_ativo:
 
     opçao= input("Escolher uma opção:")
     if opçao == "1":
-        print("Opção cadastrar livros selecionados")
+        cadastrar_livros(acervo_livros, isbns_cadastrados)
 
     elif opçao == "2":
         print("Opção listar filmes selecionados ")

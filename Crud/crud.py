@@ -1,4 +1,4 @@
-def cadastrar_livros(acervo_livros, isbns_cadastros):
+def cadastrar_livros(acervo_livros, isbns_cadastrados):
     """ livros novos para serem cadastro no acervo, que 
     recebe uma lista de livros com catalogo e o ISBNs já inseridos
     """
