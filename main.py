@@ -1,4 +1,4 @@
-from Crud.crud import cadastrar_livros
+from Crud.crud import cadastrar_livro
 acervo_livros = []
 isbns_cadastrados = set()
 quantidade_livros = 0
@@ -10,7 +10,7 @@ if arquivo_encontrado == False:
     print("Arquivos não encontrados")
     print("Iniciando com acervo vazio")
 
-elif acervo_livros == "":
+elif acervo_livros == []:
     print("O acervo está vazio")
 
 else:
@@ -33,7 +33,7 @@ while Sistema_ativo:
 
     opçao= input("Escolher uma opção:")
     if opçao == "1":
-        cadastrar_livros(acervo_livros, isbns_cadastrados)
+        cadastrar_livro(acervo_livros, isbns_cadastrados)
 
     elif opçao == "2":
         print("Opção listar filmes selecionados ")
