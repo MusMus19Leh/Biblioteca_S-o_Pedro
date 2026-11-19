@@ -35,3 +35,19 @@ def cadastrar_livro(acervo_livros, isbns_cadastrados):
 
         else:
             break
+
+def listar_livros(acervo_livros):
+    """
+    Livros cadastrados no acervo 
+    """
+
+    print("\n Acervo de Livros")
+
+    if not acervo_livros:
+        print("O acervo está incompleto!")
+        return
+
+    print(f"{'código:<10'} {'título':<15} {'autor':< 20}
+          {'gênero:<20'} {'preço':<}
+   
+    
