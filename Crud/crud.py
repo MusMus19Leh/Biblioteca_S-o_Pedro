@@ -56,4 +56,5 @@ def listar_livros(acervo_livros):
             titulo = titulo [:22] +"..."
         
         print(f"{livro['código']:<10} {livro['título']:<15} {livro['autor']:< 20} {livro['gênero']:< 20} R$ {livro['preço']:<20.2f} {livro['unidade']:<10}")
+
            
