@@ -47,7 +47,13 @@ def listar_livros(acervo_livros):
         print("O acervo está incompleto!")
         return
 
-    print(f"{'código:<10'} {'título':<15} {'autor':< 20}
-          {'gênero:<20'} {'preço':<}
+    print(f"{'código':<10} {'título':<15} {'autor':< 20} {'gênero':< 20} {'preço':<20} {'unidade':<10}")
    
-    
+    for livro in acervo_livros:
+        titulo = livro["título"]
+
+        if len(titulo) > 25:
+            titulo = titulo [:22] +"..."
+        
+        print(f"{livro['código']:<10} {livro['título']:<15} {livro['autor']:< 20} {livro['gênero']:< 20} R$ {livro['preço']:<20.2f} {livro['unidade']:<10}")
+           
