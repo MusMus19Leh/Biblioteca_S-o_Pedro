@@ -39,10 +39,10 @@ while Sistema_ativo:
         listar_livros(acervo_livros)
     
     elif opçao == "3":
-        print("Opção buscar filmes selecionados")
+        print("Opção buscar livro selecionados")
 
     elif opçao == "4":
-        print("opção Editar filmes selecionados")
+        print("opção Editar livro selecionados")
 
     elif opçao == "5":
         print("opção Registrar livro vendido ")
