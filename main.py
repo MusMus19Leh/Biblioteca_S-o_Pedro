@@ -17,7 +17,8 @@ else:
     print("Acervo que está disponivel:")
     print(acervo_livros)
 
-opçao = ""
+def menu_principal ():
+
 Sistema_ativo = True
 while Sistema_ativo:
 
