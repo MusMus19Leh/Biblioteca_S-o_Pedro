@@ -40,7 +40,7 @@ while Sistema_ativo:
         listar_livros(acervo_livros)
     
     elif opçao == "3":
-        print("Opção buscar livro selecionados")
+        buscar_livro(acervo_livros)
 
     elif opçao == "4":
         print("opção Editar livro selecionados")
