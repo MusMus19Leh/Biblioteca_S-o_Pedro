@@ -1,59 +1,123 @@
-Acervo_livros = ""
-quantidade_livros = 0
-arquivo_encontrado = False 
-print ("Sebo de livros")
 
+from Crud.crud import cadastrar_livro, listar_livros
+
+acervo_livros = []
+isbns_cadastrados = set()
+quantidade_livros = 0
+arquivo_encontrado = False
+
+print("Sebo de livros")
 
 if arquivo_encontrado == False:
     print("Arquivos não encontrados")
     print("Iniciando com acervo vazio")
 
-elif Acervo_livros == "":
+elif acervo_livros == []:
     print("O acervo está vazio")
 
 else:
-    print("Acervo que está disponivel:")
-    print(Acervo_livros)
+    print("Acervo que está disponível:")
+    print(acervo_livros)
 
-opçao = ""
-Sistema_ativo = True
-while Sistema_ativo:
 
-    print("Sebo de livros opções")
-    print("1-Cadastrar livro")
-    print("2-Listar livros")
-    print("3-Buscar livros")
-    print("4-Editatr livros")
-    print("5-Registrar vendas")
-    print("6-Excluir livros")
-    print("7-Relatorios")
-    print("8-Sair")
+# Menu principal
+def menu_principal():
 
-    opçao= input("Escolher uma opção:")
-    if opçao == "1":
-        print("Opção cadastrar livros selecionados")
+    sistema_ativo = True
 
-    elif opçao == "2":
-        print("Opção listar filmes selecionados ")
-    
-    elif opçao == "3":
-        print("Opção buscar filmes selecionados")
+    while sistema_ativo:
 
-    elif opçao == "4":
-        print("opção Editar filmes selecionados")
+        print("\nSebo de livros opções")
+        print("1-Cadastrar livro")
+        print("2-Listar livros")
+        print("3-Buscar livros")
+        print("4-Editar livros")
+        print("5-Registrar vendas")
+        print("6-Excluir livros")
+        print("7-Relatórios")
+        print("8-Sair")
 
-    elif opçao == "5":
-        print("opção Registrar livro vendido ")
+        opcao = input("Escolher uma opção: ")
 
-    elif opçao == "6":
-        print("Opçao excluir livro selecionado")
+        if opcao == "1":
+            cadastrar_livro(acervo_livros, isbns_cadastrados)
 
-    elif opçao == "7":
-        print("opção mostrar relatorio")
+        elif opcao == "2":
+            listar_livros(acervo_livros)
 
-    elif opçao == "8":
-        break 
+        elif opcao == "3":
+            buscar_livro(acervo_livros)
+
+        elif opcao == "4":
+            print("Opção editar livro selecionada")
+
+        elif opcao == "5":
+            print("Opção registrar livro vendido")
+
+        elif opcao == "6":
+            print("Opção excluir livro selecionado")
+
+        elif opcao == "7":
+            print("Opção mostrar relatório")
+
+        elif opcao == "8":
+            print("Encerrando o sistema...")
+            break
+
+        else:
+            print("Opção inválida.")
+
+
+# Requisito 5 - Buscar livro
+def buscar_livro(acervo_livros):
+
+    print("\n===== BUSCAR LIVRO =====")
+    print("1 - Buscar pelo ISBN")
+    print("2 - Buscar pelo título")
+
+    opcao_busca = input("Escolha uma opção: ")
+    encontrado = False
+
+    if opcao_busca == "1":
+
+        codigo_busca = input("Digite o ISBN: ").strip().lower()
+
+        if codigo_busca == "":
+            print("Digite um ISBN válido.")
+            return
+
+        for livro in acervo_livros:
+
+            if str(livro["isbn"]).lower() == codigo_busca:
+                print("\nLivro encontrado:")
+                print(livro)
+                encontrado = True
+
+    elif opcao_busca == "2":
+
+        titulo_busca = input(
+            "Digite o título ou parte dele: "
+        ).strip().lower()
+
+        if titulo_busca == "":
+            print("Digite um título válido.")
+            return
+
+        for livro in acervo_livros:
+
+            if titulo_busca in livro["titulo"].lower():
+                print("\nLivro encontrado:")
+                print(livro)
+                encontrado = True
+
     else:
-        print("opção invalida.")
-        
-    
+        print("Opção de busca inválida.")
+        return
+
+    if encontrado == False:
+        print("Nenhum livro encontrado.")
+
+
+# Iniciar o sistema
+menu_principal()
+
