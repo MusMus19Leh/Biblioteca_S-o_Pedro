@@ -6,6 +6,8 @@ arquivo_encontrado = False
 
 generos_aceitos = ("romance,"ficção","terror", "fantasia", "historia", "outos")
 
+estados_aceitos = ("novo","seminovo", "usado")
+
 
 
 print ("Sebo de livros")
