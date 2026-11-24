@@ -43,20 +43,8 @@ while Sistema_ativo:
         print("8-Sair"
         
     opçao= input("Escolher uma opção:")
-    if opçao == "1":
-        cadastrar_livro(acervo_livros, isbns_cadastrados)
-
-    elif opçao == "2":
-        listar_livros(acervo_livros)
     
-    elif opçao == "3":
-        buscar_livro(acervo_livros)
-
-    elif opçao == "4":
-        print("opção Editar livro selecionados")
-
-
-        opcao = input("Escolher uma opção: ")
+        
 
         if opcao == "1":
             cadastrar_livro(acervo_livros, isbns_cadastrados)
@@ -108,7 +96,7 @@ def buscar_livro(acervo_livros):
         for livro in acervo_livros:
 
             if str(livro["isbn"]).lower() == codigo_busca:
-                print("\nLivro encontrado:")
+                print("Livro encontrado:")
                 print(livro)
                 encontrado = True
 
@@ -125,7 +113,7 @@ def buscar_livro(acervo_livros):
         for livro in acervo_livros:
 
             if titulo_busca in livro["titulo"].lower():
-                print("\nLivro encontrado:")
+                print("Livro encontrado:")
                 print(livro)
                 encontrado = True
 
