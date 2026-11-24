@@ -1,5 +1,4 @@
-<<<<<<< HEAD:seboencontrodosrios.py
-=======
+
 from Crud.crud import cadastrar_livro, listar_livros
 acervo_livros = []
 isbns_cadastrados = set()
@@ -11,17 +10,6 @@ generos_aceitos = ("romance,"ficção","terror", "fantasia", "historia", "outos"
 estados_aceitos = ("novo","seminovo", "usado")
 
 
-
-print ("Sebo de livros")
->>>>>>> 1d3832ab6f857e289a5327f232f9558d563542bf:main.py
-
-from Crud.crud import cadastrar_livro, listar_livros
-
-acervo_livros = []
-isbns_cadastrados = set()
-quantidade_livros = 0
-arquivo_encontrado = False
-
 print("Sebo de livros")
 
 if arquivo_encontrado == False:
@@ -32,11 +20,10 @@ elif acervo_livros == []:
     print("O acervo está vazio")
 
 else:
-<<<<<<< HEAD:seboencontrodosrios.py
     print("Acervo que está disponível:")
     print(acervo_livros)
 
-=======
+
     print("Acervo que está disponivel:")
     print(acervo_livros)
 
@@ -44,12 +31,11 @@ def menu_principal ():
 
 Sistema_ativo = True
 while Sistema_ativo:
->>>>>>> 1d3832ab6f857e289a5327f232f9558d563542bf:main.py
+
 
 # Menu principal
 def menu_principal():
 
-<<<<<<< HEAD:seboencontrodosrios.py
     sistema_ativo = True
 
     while sistema_ativo:
@@ -62,8 +48,8 @@ def menu_principal():
         print("5-Registrar vendas")
         print("6-Excluir livros")
         print("7-Relatórios")
-        print("8-Sair")
-=======
+        print("8-Sair"
+        
     opçao= input("Escolher uma opção:")
     if opçao == "1":
         cadastrar_livro(acervo_livros, isbns_cadastrados)
@@ -76,7 +62,7 @@ def menu_principal():
 
     elif opçao == "4":
         print("opção Editar livro selecionados")
->>>>>>> 1d3832ab6f857e289a5327f232f9558d563542bf:main.py
+
 
         opcao = input("Escolher uma opção: ")
 
@@ -112,7 +98,7 @@ def menu_principal():
 # Requisito 5 - Buscar livro
 def buscar_livro(acervo_livros):
 
-    print("\n===== BUSCAR LIVRO =====")
+    print("BUSCAR LIVRO ")
     print("1 - Buscar pelo ISBN")
     print("2 - Buscar pelo título")
 
@@ -152,7 +138,6 @@ def buscar_livro(acervo_livros):
                 encontrado = True
 
     else:
-<<<<<<< HEAD:seboencontrodosrios.py
         print("Opção de busca inválida.")
         return
 
@@ -162,8 +147,6 @@ def buscar_livro(acervo_livros):
 
 # Iniciar o sistema
 menu_principal()
-
-=======
         print("opção invalida.")
 
     def buscar_livro(acervo_livros)
@@ -356,5 +339,3 @@ def editar_livro(acervo_livros, isbns_cadastrados):
     
 
         
-    
->>>>>>> 1d3832ab6f857e289a5327f232f9558d563542bf:main.py
