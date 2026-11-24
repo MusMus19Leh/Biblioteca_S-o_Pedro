@@ -3,6 +3,11 @@ acervo_livros = []
 isbns_cadastrados = set()
 quantidade_livros = 0
 arquivo_encontrado = False 
+
+generos_aceitos = ("romance,"ficção","terror", "fantasia", "historia", "outos")
+
+
+
 print ("Sebo de livros")
 
 
