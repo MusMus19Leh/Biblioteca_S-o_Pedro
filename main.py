@@ -58,5 +58,48 @@ while Sistema_ativo:
         break 
     else:
         print("opção invalida.")
+
+    def buscar_livro(acervo_livros)
+
+    print("Buscar livros")
+    print("1- Buscar pelo ISBN")
+    print("2- Buscar pelo titulo")
+
+opcao_buscar = input("Escolher uma opcao")
+encontrado = false 
+if opcão_buscar == "1":
+
+    codigo_buscar = input("Digite o ISBN:").strip().lower()
+    if codigo_buscar == "":
+        print("Digite um ISBN valido.")
+
+    for livros in acervo_livros:
+        if str(livros["isbn"].lower() == codigo_busca:
+            print("Livro encontado:")
+            print (livro)
+            encontado = true
+elif opcao_buscar == "2":
+
+    titulos_buscar = input("Digite o titulo ou parte dele:").strip().lower()
+    if titulo_buscar ==:
+        print("Digite um titulo valido.")
+        return
+
+for livro in acervo_livros:
+
+    if titulos_busca in livro["titulos"]
+        print("Livros encontado:")
+        print(livro)
+        encontado = true
+
+else:
+    print("Opção de busca invalido")
+    return
+
+if encontado == false:
+    print("nehum livro encontado")
+
+    
+
         
     
