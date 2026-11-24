@@ -27,7 +27,7 @@ def menu_principal():
 
     while sistema_ativo:
 
-        print("\nSebo de livros opções")
+        print("Sebo de livros opções")
         print("1-Cadastrar livro")
         print("2-Listar livros")
         print("3-Buscar livros")
@@ -71,7 +71,7 @@ def menu_principal():
 # Requisito 5 - Buscar livro
 def buscar_livro(acervo_livros):
 
-    print("\n===== BUSCAR LIVRO =====")
+    print("Buscar livros")
     print("1 - Buscar pelo ISBN")
     print("2 - Buscar pelo título")
 
@@ -89,7 +89,7 @@ def buscar_livro(acervo_livros):
         for livro in acervo_livros:
 
             if str(livro["isbn"]).lower() == codigo_busca:
-                print("\nLivro encontrado:")
+                print("Livro encontrado:")
                 print(livro)
                 encontrado = True
 
@@ -106,7 +106,7 @@ def buscar_livro(acervo_livros):
         for livro in acervo_livros:
 
             if titulo_busca in livro["titulo"].lower():
-                print("\nLivro encontrado:")
+                print("Livro encontrado:")
                 print(livro)
                 encontrado = True
 
@@ -118,6 +118,5 @@ def buscar_livro(acervo_livros):
         print("Nenhum livro encontrado.")
 
 
-# Iniciar o sistema
 menu_principal()
 
