@@ -32,14 +32,6 @@ def menu_principal ():
 Sistema_ativo = True
 while Sistema_ativo:
 
-
-# Menu principal
-def menu_principal():
-
-    sistema_ativo = True
-
-    while sistema_ativo:
-
         print("\nSebo de livros opções")
         print("1-Cadastrar livro")
         print("2-Listar livros")
