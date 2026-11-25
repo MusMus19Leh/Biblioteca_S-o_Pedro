@@ -8,7 +8,7 @@ def cadastrar_livro(acervo_livros, isbns_cadastrados):
     while True:
         titulo = input("Digite o título do livro:")
 
-        if titulo != "":
+        if titulo.strip() != "":
             break
         else:
             print("Está vazio. Por favor, preencha novamente seu título!")
