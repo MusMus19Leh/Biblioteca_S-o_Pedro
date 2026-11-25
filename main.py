@@ -1,13 +1,23 @@
 
 from Crud.crud import cadastrar_livro, listar_livros
+
+
+# Dados do sistema
 acervo_livros = []
 isbns_cadastrados = set()
-quantidade_livros = 0
-arquivo_encontrado = False 
 
-generos_aceitos = ("romance,"ficção","terror", "fantasia", "historia", "outos")
+arquivo_encontrado = False
 
-estados_aceitos = ("novo","seminovo", "usado")
+generos_aceitos = (
+    "romance",
+    "ficção",
+    "terror",
+    "fantasia",
+    "historia",
+    "outros"
+)
+
+estados_aceitos = ("novo", "seminovo", "usado")
 
 
 print("Sebo de livros")
@@ -20,65 +30,14 @@ elif acervo_livros == []:
     print("O acervo está vazio")
 
 else:
-    print("Acervo que está disponível:")
+    print("Acervo disponível:")
     print(acervo_livros)
-
-
-    print("Acervo que está disponivel:")
-    print(acervo_livros)
-
-def menu_principal ():
-
-Sistema_ativo = True
-while Sistema_ativo:
-
-        print("\nSebo de livros opções")
-        print("1-Cadastrar livro")
-        print("2-Listar livros")
-        print("3-Buscar livros")
-        print("4-Editar livros")
-        print("5-Registrar vendas")
-        print("6-Excluir livros")
-        print("7-Relatórios")
-        print("8-Sair"
-        
-    opçao= input("Escolher uma opção:")
-    
-        
-
-        if opcao == "1":
-            cadastrar_livro(acervo_livros, isbns_cadastrados)
-
-        elif opcao == "2":
-            listar_livros(acervo_livros)
-
-        elif opcao == "3":
-            buscar_livro(acervo_livros)
-
-        elif opcao == "4":
-            print("Opção editar livro selecionada")
-
-        elif opcao == "5":
-            print("Opção registrar livro vendido")
-
-        elif opcao == "6":
-            print("Opção excluir livro selecionado")
-
-        elif opcao == "7":
-            print("Opção mostrar relatório")
-
-        elif opcao == "8":
-            print("Encerrando o sistema...")
-            break
-
-        else:
-            print("Opção inválida.")
 
 
 # Requisito 5 - Buscar livro
 def buscar_livro(acervo_livros):
 
-    print("BUSCAR LIVRO ")
+    print("\nBUSCAR LIVRO")
     print("1 - Buscar pelo ISBN")
     print("2 - Buscar pelo título")
 
@@ -87,7 +46,7 @@ def buscar_livro(acervo_livros):
 
     if opcao_busca == "1":
 
-        codigo_busca = input("Digite o ISBN: ").strip().lower()
+        codigo_busca = input("Digite o ISBN: ").strip()
 
         if codigo_busca == "":
             print("Digite um ISBN válido.")
@@ -95,7 +54,7 @@ def buscar_livro(acervo_livros):
 
         for livro in acervo_livros:
 
-            if str(livro["isbn"]).lower() == codigo_busca:
+            if str(livro["isbn"]).lower() == codigo_busca.lower():
                 print("Livro encontrado:")
                 print(livro)
                 encontrado = True
@@ -125,64 +84,20 @@ def buscar_livro(acervo_livros):
         print("Nenhum livro encontrado.")
 
 
-# Iniciar o sistema
-menu_principal()
-        print("opção invalida.")
-
-    def buscar_livro(acervo_livros)
-
-    print("Buscar livros")
-    print("1- Buscar pelo ISBN")
-    print("2- Buscar pelo titulo")
-
-opcao_buscar = input("Escolher uma opcao")
-encontrado = false 
-if opcão_buscar == "1":
-
-    codigo_buscar = input("Digite o ISBN:").strip().lower()
-    if codigo_buscar == "":
-        print("Digite um ISBN valido.")
-
-    for livros in acervo_livros:
-        if str(livros["isbn"].lower() == codigo_busca:
-            print("Livro encontado:")
-            print (livro)
-            encontado = true
-elif opcao_buscar == "2":
-
-    titulos_buscar = input("Digite o titulo ou parte dele:").strip().lower()
-    if titulo_buscar ==:
-        print("Digite um titulo valido.")
-        return
-
-for livro in acervo_livros:
-
-    if titulos_busca in livro["titulos"]
-        print("Livros encontado:")
-        print(livro)
-        encontado = true
-
-else:
-    print("Opção de busca invalido")
-    return
-
-if encontado == false:
-    print("nehum livro encontado")
-
-    
-
-
+# Requisito 6 - Editar livro
 def editar_livro(acervo_livros, isbns_cadastrados):
 
-    print("Editar livro")
+    print("\nEDITAR LIVRO")
 
-    codigo_busca = input("Digite o código do livro: ").strip().lower()
+    codigo_busca = input(
+        "Digite o código do livro: "
+    ).strip().lower()
 
     for livro in acervo_livros:
 
         if str(livro["codigo"]).lower() == codigo_busca:
 
-            print("Dados atuais do livro:")
+            print("\nDados atuais do livro:")
 
             print("Código:", livro["codigo"])
             print("Título:", livro["titulo"])
@@ -193,21 +108,21 @@ def editar_livro(acervo_livros, isbns_cadastrados):
             print("Preço:", livro["preco"])
             print("Quantidade:", livro["quantidade"])
 
-            print("Aperte Enter para manter o valor atual.")
+            print("\nAperte Enter para manter o valor atual.")
 
-            
+            # Editar título
             novo_titulo = input("Novo título: ").strip()
 
             if novo_titulo != "":
                 livro["titulo"] = novo_titulo
 
-            
+            # Editar autor
             novo_autor = input("Novo autor: ").strip()
 
             if novo_autor != "":
                 livro["autor"] = novo_autor
 
-            
+            # Editar ISBN
             while True:
 
                 novo_isbn = input("Novo ISBN: ").strip()
@@ -227,12 +142,12 @@ def editar_livro(acervo_livros, isbns_cadastrados):
                     isbns_cadastrados.add(novo_isbn)
                     break
 
-            
-            print("Gêneros aceitos:", generos_aceitos)
+            # Editar gênero
+            print("\nGêneros aceitos:", generos_aceitos)
 
             while True:
 
-                novo_genero = input("Novo gênero: ").strip()
+                novo_genero = input("Novo gênero: ").strip().lower()
 
                 if novo_genero == "":
                     break
@@ -244,12 +159,12 @@ def editar_livro(acervo_livros, isbns_cadastrados):
                 else:
                     print("Gênero inválido.")
 
-            
-            print("Estados aceitos:", estados_aceitos)
+            # Editar estado
+            print("\nEstados aceitos:", estados_aceitos)
 
             while True:
 
-                novo_estado = input("Novo estado: ").strip()
+                novo_estado = input("Novo estado: ").strip().lower()
 
                 if novo_estado == "":
                     break
@@ -261,7 +176,7 @@ def editar_livro(acervo_livros, isbns_cadastrados):
                 else:
                     print("Estado inválido.")
 
-            
+            # Editar preço
             while True:
 
                 novo_preco = input("Novo preço: ").strip()
@@ -282,7 +197,7 @@ def editar_livro(acervo_livros, isbns_cadastrados):
                 except ValueError:
                     print("Digite um preço válido.")
 
-            
+            # Editar quantidade
             while True:
 
                 nova_quantidade = input("Nova quantidade: ").strip()
@@ -303,19 +218,68 @@ def editar_livro(acervo_livros, isbns_cadastrados):
                 except ValueError:
                     print("Digite uma quantidade válida.")
 
-            print("Livro atualizado com sucesso!")
+            print("\nLivro atualizado com sucesso!")
             return
 
     print("Livro não encontrado.")
 
 
+# Menu principal
+def menu_principal():
+
+    sistema_ativo = True
+
+    while sistema_ativo:
+
+        print("\n===== SEBO DE LIVROS =====")
+        print("1 - Cadastrar livro")
+        print("2 - Listar livros")
+        print("3 - Buscar livros")
+        print("4 - Editar livros")
+        print("5 - Registrar vendas")
+        print("6 - Excluir livros")
+        print("7 - Relatórios")
+        print("8 - Sair")
+
+        opcao = input("Escolha uma opção: ").strip()
+
+        if opcao == "1":
+
+            cadastrar_livro(acervo_livros, isbns_cadastrados)
+
+        elif opcao == "2":
+
+            listar_livros(acervo_livros)
+
+        elif opcao == "3":
+
+            buscar_livro(acervo_livros)
+
+        elif opcao == "4":
+
+            editar_livro(acervo_livros, isbns_cadastrados)
+
+        elif opcao == "5":
+
+            print("Opção registrar livro vendido selecionada.")
+
+        elif opcao == "6":
+
+            print("Opção excluir livro selecionada.")
+
+        elif opcao == "7":
+
+            print("Opção mostrar relatório selecionada.")
+
+        elif opcao == "8":
+
+            print("Encerrando o sistema...")
+            sistema_ativo = False
+
+        else:
+
+            print("Opção inválida. Tente novamente.")
 
 
-
- 
-
-
-
-    
-
-        
+# Iniciar o sistema
+menu_principal()
