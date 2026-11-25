@@ -1,4 +1,10 @@
+from Arquivos.arquivos import carregar_acervo
 
+acervo_livros = carregar_acervo()
+isbns_cadastrados = set()
+
+for livros in acervo_livros:
+    isbns_cadastrados.add(livros["isbn"])
 from Crud.crud import cadastrar_livro, listar_livros
 
 
@@ -227,9 +233,9 @@ def editar_livro(acervo_livros, isbns_cadastrados):
 # Menu principal
 def menu_principal():
 
-    sistema_ativo = True
+ Sistema_ativo = True
 
-    while sistema_ativo:
+ while sistema_ativo:
 
         print("\n===== SEBO DE LIVROS =====")
         print("1 - Cadastrar livro")
@@ -257,19 +263,19 @@ def menu_principal():
 
         elif opcao == "4":
 
-            editar_livro(acervo_livros, isbns_cadastrados)
+            editar_livro(acervo_livros)
 
         elif opcao == "5":
 
-            print("Opção registrar livro vendido selecionada.")
+            print(acervo_livros)
 
         elif opcao == "6":
 
-            print("Opção excluir livro selecionada.")
+            print(acervo_livros, isbns_cadastrados)
 
         elif opcao == "7":
 
-            print("Opção mostrar relatório selecionada.")
+            print(acervo_livros)
 
         elif opcao == "8":
 
