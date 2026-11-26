@@ -1,10 +1,13 @@
+generos_aceitos = [...]
+estados_aceitos= [...]
+
 def cadastrar_livro(acervo_livros, isbns_cadastrados):
     """ livros novos para serem cadastro no acervo, que 
     recebe uma lista de livros com catalogo e o ISBNs já inseridos
     """
-
+    
     print("\n Cadastro de livro")
-
+    
     while True:
         titulo = input("Digite o título do livro:")
 
@@ -108,7 +111,7 @@ def buscar_livro(acervo_livros):
     if encontrado == False:
         print("Nenhum livro encontrado.")
    
-
+# Requisito 6 - Editar Livro
 def editar_livro(acervo_livros, isbns_cadastrados):
 
     print("Editar livro")
@@ -126,7 +129,7 @@ def editar_livro(acervo_livros, isbns_cadastrados):
             print("Autor:", livro["autor"])
             print("ISBN:", livro["isbn"])
             print("Gênero:", livro["genero"])
-            print("Estado:", livro["estado",livro["estado"]])
+            print("Estado:", livro["estado"],livro["estado"])
             print("Preço:", livro["preco"])
             print("Quantidade:", livro["quantidade"])
 
@@ -165,7 +168,7 @@ def editar_livro(acervo_livros, isbns_cadastrados):
                     break
 
             
-            print("Gêneros aceitos:", "generos_aceitos")
+            print("Gêneros aceitos:", generos_aceitos)
 
             while True:
 
@@ -182,17 +185,17 @@ def editar_livro(acervo_livros, isbns_cadastrados):
                     print("Gênero inválido.")
 
             
-            print("Estados aceitos:", "estados_aceitos")
+            print("Estados aceitos:", estados_aceitos)
 
             while True:
 
-                novo_estado = input("Novo estado:,livro["estado"]").strip()
+                novo_estado = input(f"Novo estado:({livro["estado"]}").strip()
 
                 if novo_estado == "":
                     break
 
                 elif novo_estado in estados_aceitos:
-                    livro["estado",livro["estado"]] = novo_estado
+                    livro["estado"]= novo_estado
                     break
 
                 else:
