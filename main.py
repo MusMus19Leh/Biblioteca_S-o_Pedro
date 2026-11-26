@@ -1,3 +1,4 @@
+from Dados.dados import acervo_livros, isbns_cadastrados
 from Arquivos.arquivos import carregar_acervo
 
 from Crud.crud import(
