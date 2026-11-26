@@ -6,7 +6,6 @@ from Dados.dados import (
     )
 
 from Dados.acervo import carregar_acervo, salvar_acervo
-from Arquivos.arquivos import carregar_acervo
 
 from Crud.crud import(
     cadastrar_livro,
@@ -18,7 +17,6 @@ from Crud.crud import(
 )
 
 acervo_livros.extend(carregar_acervo())
-isbns_cadastrados = set()
 
 for livro in acervo_livros:
     isbns_cadastrados.add(livro["isbn"])
@@ -26,14 +24,16 @@ for livro in acervo_livros:
 # Menu principal
 def menu_principal():
 
- Sistema_ativo = True
- print("\n Biblioteca São Pedro")
+    Sistema_ativo = True
 
- if acervo_livros == []:
+    print("\n Biblioteca São Pedro")
+
+    if acervo_livros == []:
      print("O acervo está em branco")
- else:
+    else:
      print("Acervo carregado!")    
- while sistema_ativo:
+    
+    while Sistema_ativo:
 
         print("\n===== SEBO DE LIVROS =====")
         print("1 - Cadastrar livro")
@@ -82,7 +82,7 @@ def menu_principal():
         elif opcao == "8":
 
             print("Encerrando o sistema...")
-            sistema_ativo = False
+            break
 
         else:
 
