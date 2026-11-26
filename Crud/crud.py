@@ -257,7 +257,7 @@ def registrar_venda(acervo_livros):
 
         for livro in acervo_livros:
         
-            if str(livros["codigo"]).lower() == codigo_busca:
+            if str(livro["codigo"]).lower() == codigo_buscar.lower():
             
                 print("livro:",livro["titulo"])
                 print("preço", livro["preco"])
@@ -268,37 +268,36 @@ def registrar_venda(acervo_livros):
                    print("livro sem estoque.")
                 return
 
-while true:
- try:
-    quantidade_vendida = int(input("Digite a quantidade vendidade:"))
+            while True:
+                try:
+                   quantidade_vendida = int(input("Digite a quantidade vendidade:"))
                 
+                   if quantidade_vendida <= 0:
+                      print("A quantidade vendida deve ser maior que zero.")
 
-    if quantidade_vendidada <= 0:
-                print("A quantidade vendida deve ser maior que zero.")
+                   elif quantidade_vendida > livro ["quantidade "]:
+                        print("Estoque insuficiente.")
 
-    elif quantidade_vendidada > livro ["quantidade "]:
-                    print("Estoque insuficiente.")
-
-    else:
+                   else:
                     break
                     
- except ValueError:
-                print("Digite uma quantidade válida:")
+                except ValueError:
+                    print("Digite uma quantidade válida:")
 
-                valor_total = livro["preço"] * quantidade_vendida
+            valor_total = livro["preço"] * quantidade_vendida
 
-                if livro["estado"].lower() == "regular"
+            if livro["estado"].lower() == "regular":
                     valor_total = valor_total * 0.80
                     print("Desonto de 20% aplicado.")
 
-                livro["quantidade"] = quantidade_vendidada
+            livro["quantidade"] -= quantidade_vendida
 
-                print ("venda registrada com sucesso!")
-                print(f" valor total de venda: {valor_total:.2f}")
+            print ("venda registrada com sucesso!")
+            print(f" valor total de venda: {valor_total:.2f}")
 
-                 return
+            return
 
-                print("livro não encontrado.")
+print("livro não encontrado.")
 
 
 #Requisito 8- excluir livros
