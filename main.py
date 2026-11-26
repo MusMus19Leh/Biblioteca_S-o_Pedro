@@ -1,4 +1,11 @@
-from Dados.dados import acervo_livros, isbns_cadastrados
+from Dados.dados import (
+    acervo_livros, 
+    isbns_cadastrados,
+    generos_aceitos,
+    estados_aceitos
+    )
+
+from Dados.acervo import carregar_acervo, salvar_acervo
 from Arquivos.arquivos import carregar_acervo
 
 from Crud.crud import(
@@ -10,7 +17,7 @@ from Crud.crud import(
     excluir_livro
 )
 
-acervo_livros = carregar_acervo()
+acervo_livros.extend(carregar_acervo())
 isbns_cadastrados = set()
 
 for livro in acervo_livros:
@@ -43,6 +50,7 @@ def menu_principal():
         if opcao == "1":
 
             cadastrar_livro(acervo_livros, isbns_cadastrados)
+            salvar_acervo(acervo_livros)
 
         elif opcao == "2":
 
@@ -55,14 +63,17 @@ def menu_principal():
         elif opcao == "4":
 
             editar_livro(acervo_livros,isbns_cadastrados)
+            salvar_acervo(acervo_livros)
 
         elif opcao == "5":
 
             registrar_venda(acervo_livros)
+            salvar_acervo(acervo_livros)
 
         elif opcao == "6":
 
             excluir_livro(acervo_livros, isbns_cadastrados)
+            salvar_acervo(acervo_livros)
 
         elif opcao == "7":
 
