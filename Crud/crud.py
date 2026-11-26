@@ -306,29 +306,29 @@ def excluir_livro(acervo_livros,isbn_cadastrados):
         
     print("Excluir livro")
             
-    codigo_busca = input("Digite o codigo do livro:").strip.lower()
+    codigo_busca = input("Digite o codigo do livro:").strip().lower()
     for livro in acervo_livros:    
         if str(livro["codigo"]).lower() == codigo_busca:
             print("Livro encontado:", livro["titulo"])
 
-    while true:
+    while True:
 
-     confirmacao = input("Deseja excluir o livro? (S/N):").strip.lower()
-     if confirmacao == "S":
+        confirmacao = input("Deseja excluir o livro? (S/N):").strip.lower()
+        if confirmacao == "S":
                         
-    isbn_cadastrados.discard(livro["isbn"])
-    acervo_livros.remove(livro)
+           isbn_cadastrados.discard(livro["isbn"])
+           acervo_livros.remove(livro)
 
-    print("Livro excluido com sucesso!")
-    return
+           print("Livro excluido com sucesso!")
+           return
 
-    elif confirmacao == "N"
+        elif confirmacao == "N":
 
-    print("Exclusão cancelada.")
-    return
+            print("Exclusão cancelada.")
+            return
 
-    else:
-    print("Opação invalida.Digite S ou N")
+        else:
+            print("Opação invalida.Digite S ou N")
 
     print("Livro não encontado.")
   
