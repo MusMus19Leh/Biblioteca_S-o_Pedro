@@ -79,22 +79,22 @@ def buscar_livro(acervo_livros):
 
         codigo_busca = input("Digite o ISBN: ").strip().lower()
 
-    if codigo_busca == "":
-        print("Digite um ISBN válido.")
-        return
+        if codigo_busca == "":
+            print("Digite um ISBN válido.")
+            return
 
-    for livro in acervo_livros:
+        for livro in acervo_livros:
 
-        if str(livro["isbn"]).lower() == codigo_busca:
-            print("Livro encontrado:")
-            print(livro)
-            encontrado = True
+            if str(livro["isbn"]).lower() == codigo_busca:
+                print("Livro encontrado:")
+                print(livro)
+                encontrado = True
 
-        elif opcao_busca == "2":
+    elif opcao_busca == "2":
 
-            titulo_busca = input(
-                "Digite o título ou parte dele: "
-            ).strip().lower()
+        titulo_busca = input(
+            "Digite o título ou parte dele: "
+        ).strip().lower()
 
         if titulo_busca == "":
             print("Digite um título válido.")
