@@ -1,13 +1,14 @@
 generos_aceitos = [...]
-estados_aceitos= [...]
+estados_aceitos = [...]
+
 
 def cadastrar_livro(acervo_livros, isbns_cadastrados):
     """ livros novos para serem cadastro no acervo, que 
     recebe uma lista de livros com catalogo e o ISBNs já inseridos
     """
-    
+
     print("\n Cadastro de livro")
-    
+
     while True:
         titulo = input("Digite o título do livro:")
 
@@ -39,6 +40,8 @@ def cadastrar_livro(acervo_livros, isbns_cadastrados):
         else:
             break
 # Requisitos 4 - Listar_licros
+
+
 def listar_livros(acervo_livros):
     """
     Livros cadastrados no acervo 
@@ -51,17 +54,18 @@ def listar_livros(acervo_livros):
         return
 
     print(f"{'código':<10} {'título':<15} {'autor':< 20} {'gênero':< 20} {'preço':<20} {'unidade':<10}")
-   
+
     for livro in acervo_livros:
         titulo = livro["título"]
 
         if len(titulo) > 25:
-            titulo = titulo [:22] +"..."
-        
+            titulo = titulo[:22] + "..."
+
         print(f"{livro['código']:<10} {livro['título']:<15} {livro['autor']:< 20} {livro['gênero']:< 20} R$ {livro['preço']:<20.2f} {livro['unidade']:<10}")
 
-
  # Requisito 5 - Buscar livro
+
+
 def buscar_livro(acervo_livros):
 
     print("BUSCAR LIVRO ")
@@ -76,22 +80,21 @@ def buscar_livro(acervo_livros):
         codigo_busca = input("Digite o ISBN: ").strip().lower()
 
     if codigo_busca == "":
-            print("Digite um ISBN válido.")
-            return
+        print("Digite um ISBN válido.")
+        return
 
     for livro in acervo_livros:
 
         if str(livro["isbn"]).lower() == codigo_busca:
-                print("Livro encontrado:")
-                print(livro)
-                encontrado = True
-        
-        
+            print("Livro encontrado:")
+            print(livro)
+            encontrado = True
+
         elif opcao_busca == "2":
 
-          titulo_busca = input(
-            "Digite o título ou parte dele: "
-        ).strip().lower()
+            titulo_busca = input(
+                "Digite o título ou parte dele: "
+            ).strip().lower()
 
         if titulo_busca == "":
             print("Digite um título válido.")
@@ -110,8 +113,10 @@ def buscar_livro(acervo_livros):
 
     if encontrado == False:
         print("Nenhum livro encontrado.")
-   
+
 # Requisito 6 - Editar Livro
+
+
 def editar_livro(acervo_livros, isbns_cadastrados):
 
     print("Editar livro")
@@ -129,25 +134,22 @@ def editar_livro(acervo_livros, isbns_cadastrados):
             print("Autor:", livro["autor"])
             print("ISBN:", livro["isbn"])
             print("Gênero:", livro["genero"])
-            print("Estado:", livro["estado"],livro["estado"])
+            print("Estado:", livro["estado"], livro["estado"])
             print("Preço:", livro["preco"])
             print("Quantidade:", livro["quantidade"])
 
             print("Aperte Enter para manter o valor atual.")
 
-            
             novo_titulo = input("Novo título: ").strip()
 
             if novo_titulo != "":
                 livro["titulo"] = novo_titulo
 
-            
             novo_autor = input("Novo autor: ").strip()
 
             if novo_autor != "":
                 livro["autor"] = novo_autor
 
-            
             while True:
 
                 novo_isbn = input("Novo ISBN: ").strip()
@@ -167,7 +169,6 @@ def editar_livro(acervo_livros, isbns_cadastrados):
                     isbns_cadastrados.add(novo_isbn)
                     break
 
-            
             print("Gêneros aceitos:", generos_aceitos)
 
             while True:
@@ -184,7 +185,6 @@ def editar_livro(acervo_livros, isbns_cadastrados):
                 else:
                     print("Gênero inválido.")
 
-            
             print("Estados aceitos:", estados_aceitos)
 
             while True:
@@ -195,13 +195,12 @@ def editar_livro(acervo_livros, isbns_cadastrados):
                     break
 
                 elif novo_estado in estados_aceitos:
-                    livro["estado"]= novo_estado
+                    livro["estado"] = novo_estado
                     break
 
                 else:
                     print("Estado inválido.")
 
-            
             while True:
 
                 novo_preco = input("Novo preço: ").strip()
@@ -222,7 +221,6 @@ def editar_livro(acervo_livros, isbns_cadastrados):
                 except ValueError:
                     print("Digite um preço válido.")
 
-            
             while True:
 
                 nova_quantidade = input("Nova quantidade: ").strip()
@@ -248,66 +246,70 @@ def editar_livro(acervo_livros, isbns_cadastrados):
 
             print("Livro não encontrado.")
 
- #requisito 7- Registar vendas
+ # requisito 7- Registar vendas
+
+
 def registrar_venda(acervo_livros):
-        
-        print("Registrar venda")
 
-        codigo_buscar = input("Digite o codigo do livro:")
+    print("Registrar venda")
 
-        for livro in acervo_livros:
-        
-            if str(livro["codigo"]).lower() == codigo_buscar.lower():
-            
-                print("livro:",livro["titulo"])
-                print("preço", livro["preco"])
-                print("estado",livro["estado"])
-                print("estoque disponível:", livro["quantidade"])
+    codigo_buscar = input("Digite o codigo do livro:")
 
-                if livro["quantidade"] == 0:
-                   print("livro sem estoque.")
-                return
+    for livro in acervo_livros:
 
-            while True:
-                try:
-                   quantidade_vendida = int(input("Digite a quantidade vendidade:"))
-                
-                   if quantidade_vendida <= 0:
-                      print("A quantidade vendida deve ser maior que zero.")
+        if str(livro["codigo"]).lower() == codigo_buscar.lower():
 
-                   elif quantidade_vendida > livro ["quantidade "]:
-                        print("Estoque insuficiente.")
+            print("livro:", livro["titulo"])
+            print("preço", livro["preco"])
+            print("estado", livro["estado"])
+            print("estoque disponível:", livro["quantidade"])
 
-                   else:
-                    break
-                    
-                except ValueError:
-                    print("Digite uma quantidade válida:")
-
-            valor_total = livro["preço"] * quantidade_vendida
-
-            if livro["estado"].lower() == "regular":
-                    valor_total = valor_total * 0.80
-                    print("Desonto de 20% aplicado.")
-
-            livro["quantidade"] -= quantidade_vendida
-
-            print ("venda registrada com sucesso!")
-            print(f" valor total de venda: {valor_total:.2f}")
-
+            if livro["quantidade"] == 0:
+                print("livro sem estoque.")
             return
+
+        while True:
+            try:
+                quantidade_vendida = int(
+                    input("Digite a quantidade vendidade:"))
+
+                if quantidade_vendida <= 0:
+                    print("A quantidade vendida deve ser maior que zero.")
+
+                elif quantidade_vendida > livro["quantidade "]:
+                    print("Estoque insuficiente.")
+
+                else:
+                    break
+
+            except ValueError:
+                print("Digite uma quantidade válida:")
+
+        valor_total = livro["preço"] * quantidade_vendida
+
+        if livro["estado"].lower() == "regular":
+            valor_total = valor_total * 0.80
+            print("Desonto de 20% aplicado.")
+
+        livro["quantidade"] -= quantidade_vendida
+
+        print("venda registrada com sucesso!")
+        print(f" valor total de venda: {valor_total:.2f}")
+
+        return
+
 
 print("livro não encontrado.")
 
 
-#Requisito 8- excluir livros
-    
-def excluir_livro(acervo_livros,isbn_cadastrados):
-        
+# Requisito 8- excluir livros
+
+def excluir_livro(acervo_livros, isbn_cadastrados):
+
     print("Excluir livro")
-            
+
     codigo_busca = input("Digite o codigo do livro:").strip().lower()
-    for livro in acervo_livros:    
+    for livro in acervo_livros:
         if str(livro["codigo"]).lower() == codigo_busca:
             print("Livro encontado:", livro["titulo"])
 
@@ -315,12 +317,12 @@ def excluir_livro(acervo_livros,isbn_cadastrados):
 
         confirmacao = input("Deseja excluir o livro? (S/N):").strip.lower()
         if confirmacao == "S":
-                        
-           isbn_cadastrados.discard(livro["isbn"])
-           acervo_livros.remove(livro)
 
-           print("Livro excluido com sucesso!")
-           return
+            isbn_cadastrados.discard(livro["isbn"])
+            acervo_livros.remove(livro)
+
+            print("Livro excluido com sucesso!")
+            return
 
         elif confirmacao == "N":
 
@@ -331,4 +333,56 @@ def excluir_livro(acervo_livros,isbn_cadastrados):
             print("Opação invalida.Digite S ou N")
 
     print("Livro não encontado.")
-  
+
+
+# Requisito 9 - Relatórios
+
+def relatorios(acervo_livros):
+
+    print("Relatórios do acervo")
+
+    if not acervo_livros:
+        print("O acervo está vazio!")
+        return
+
+    print("\nLivros com estoque baixo")
+
+    encontrou = False
+
+    for livro in acervo_livros:
+
+        if livro["quantidade"] <= 2:
+            print("Título:", livro["titulo"])
+            print("Quantidade:", livro["quantidade"])
+            encontrou = True
+
+    if encontrou == False:
+        print("Nenhum livro com estoque baixo.")
+
+    print("\nQuantidade de títulos por gênero")
+
+    generos = {}
+
+    for livro in acervo_livros:
+
+        genero = livro["genero"]
+
+        if genero in generos:
+            generos[genero] += 1
+
+        else:
+            generos[genero] = 1
+
+    for genero in generos:
+        print(genero, ":", generos[genero])
+
+    print("\nValor total do acervo")
+
+    valor_total = 0
+
+    for livro in acervo_livros:
+
+        valor = livro["preco"] * livro["quantidade"]
+        valor_total += valor
+
+    print(f"Valor total: R$ {valor_total:.2f}")

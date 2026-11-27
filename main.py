@@ -13,7 +13,8 @@ from Crud.crud import(
     buscar_livro,
     editar_livro,
     registrar_venda,
-    excluir_livro
+    excluir_livro,
+    relatorios
 )
 
 acervo_livros.extend(carregar_acervo())
@@ -77,7 +78,7 @@ def menu_principal():
 
         elif opcao == "7":
 
-            print(acervo_livros)
+            relatorios(acervo_livros)
 
         elif opcao == "8":
 
